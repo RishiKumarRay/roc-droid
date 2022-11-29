@@ -44,3 +44,14 @@ jobs:
           files: roc-droid.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pull request artifacts
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: gavv/pull-request-artifacts@v1.0.0
+        with:
+         commit: ${{ github.event.pull_request.head.sha }}
+         repo-token: ${{ secrets.GITHUB_TOKEN }}
+         artifacts-token: ${{ secrets.ANOTHER_TOKEN_WITH_PUSH_ACCESS }}
+         artifacts-repo: some/repo
+         artifacts: |
+              roc-droid.apk
+                  
