@@ -53,5 +53,5 @@ jobs:
          artifacts-token: ${{ secrets.ANOTHER_TOKEN_WITH_PUSH_ACCESS }}
          artifacts-repo: some/repo
          artifacts: |
-              roc-droid.apk
+               roc-droid.apk
                   
